@@ -15,9 +15,10 @@ def random_predict1(number: int = 1) -> int:
         int: Число попыток
     """
     count = 0
-    min1  = 1  # нижняя граница
+    min1 = 1  # нижняя граница
     max1 = 100  # верхняя граница
-    predict_number = np.random.randint(1, 101)  # предполагаемое число, начинаем с рандома
+    # предполагаемое число, начинаем с рандома
+    predict_number = np.random.randint(1, 101)  
     
     while True:
         count += 1
@@ -27,15 +28,15 @@ def random_predict1(number: int = 1) -> int:
         elif number < predict_number:
             max1 = predict_number
             predict_number = min1 + (max1 - min1)//2
-        else:
-            #print(f"Вы угадали число! Это число = {predict_number}, за {count} попыток")
+        else:            
             break  # выход из цикла если угадали
 
     return count
 
 
 def score_game1(random_predict1) -> int:
-    """За какое количство попыток в среднем за 1000 подходов угадывает наш алгоритм
+    """За какое количство попыток в среднем за 1000 
+    подходов угадывает наш алгоритм
 
     Args:
         random_predict ([type]): функция угадывания
@@ -45,7 +46,8 @@ def score_game1(random_predict1) -> int:
     """
     count_ls = []
     np.random.seed(1)  # фиксируем сид для воспроизводимости
-    random_array = np.random.randint(1, 101, size=1000)  # загадали список чисел
+    # загадали список чисел
+    random_array = np.random.randint(1, 101, size=1000)  
 
     for number in random_array:
         count_ls.append(random_predict1(number))
