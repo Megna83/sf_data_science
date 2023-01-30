@@ -15,8 +15,8 @@ def random_predict1(number: int = 1) -> int:
         int: Число попыток
     """
     count = 0
-    min1  = 1 # нижняя граница
-    max1 = 100 # верхняя граница
+    min1  = 1  # нижняя граница
+    max1 = 100  # верхняя граница
     predict_number = np.random.randint(1, 101)  # предполагаемое число, начинаем с рандома
     
     while True:
